@@ -2,3 +2,4 @@ __pycache__
 log/
 part_seg/
 sem_seg/
+dump/

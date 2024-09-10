@@ -7,6 +7,7 @@ import time
 import os
 import scipy.misc
 import sys
+from PIL import Image  # 添加这行导入
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(BASE_DIR)
 sys.path.append(os.path.join(BASE_DIR, 'models'))
@@ -151,7 +152,13 @@ def eval_one_epoch(sess, ops, num_votes=1, topk=1):
                                                            SHAPE_NAMES[pred_val[i-start_idx]])
                     img_filename = os.path.join(DUMP_DIR, img_filename)
                     output_img = pc_util.point_cloud_three_views(np.squeeze(current_data[i, :, :]))
-                    scipy.misc.imsave(img_filename, output_img)
+                    
+                    # 将浮点数图像转换为8位整数图像
+                    output_img = (output_img * 255).astype(np.uint8)
+                    
+                    # 使用PIL保存图像
+                    Image.fromarray(output_img).save(img_filename)
+                    
                     error_cnt += 1
                 
     log_string('eval mean loss: %f' % (loss_sum / float(total_seen)))
