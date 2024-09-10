@@ -7,10 +7,11 @@ import time
 import os
 import scipy.misc
 import sys
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(BASE_DIR)
-sys.path.append(os.path.join(BASE_DIR, 'models'))
-sys.path.append(os.path.join(BASE_DIR, 'utils'))
+if '__file__' in locals():
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    sys.path.append(BASE_DIR)
+    sys.path.append(os.path.join(BASE_DIR, 'models'))
+    sys.path.append(os.path.join(BASE_DIR, 'utils'))
 import provider
 import pc_util
 

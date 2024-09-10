@@ -2,8 +2,9 @@ import os
 import sys
 import numpy as np
 import h5py
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(BASE_DIR)
+if '__file__' in globals():
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    sys.path.append(BASE_DIR)
 
 # Download dataset for point cloud classification
 DATA_DIR = os.path.join(BASE_DIR, 'data')
