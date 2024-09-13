@@ -1,0 +1,23 @@
+Namespace(gpu=0, model='pointnet_cls', log_dir='log', num_point=1024, max_epoch=1, batch_size=32, learning_rate=0.001, momentum=0.9, optimizer='adam', decay_step=200, decay_rate=0.5)
+**** EPOCH 000 ****
+----0-----
+mean loss: 3.793222
+accuracy: 0.200368
+----1-----
+mean loss: 3.256397
+accuracy: 0.277832
+----2-----
+mean loss: 3.193454
+accuracy: 0.264648
+----3-----
+mean loss: 3.043472
+accuracy: 0.313477
+----4-----
+mean loss: 2.991623
+accuracy: 0.297852
+----0-----
+----1-----
+eval mean loss: 2.851127
+eval accuracy: 0.324675
+eval avg class acc: 0.230729
+Model saved in file: log/model.ckpt
